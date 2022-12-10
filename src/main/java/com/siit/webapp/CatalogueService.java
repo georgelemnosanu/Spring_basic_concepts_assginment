@@ -32,20 +32,19 @@ public class CatalogueService {
     public String createStudentGradesCatalogue() {
         List<StudentGrades> studentGradesToBeProcessed = studentsRepository.getGrades();
         String resultGrades = "";
-        int average=0;
+        int average = 0;
         Collections.sort(studentGradesToBeProcessed, new ComparatorStudentGrades() {
         });
-        for(StudentGrades s :studentGradesToBeProcessed){
-            average=s.studentAverage();
-            resultGrades=resultGrades.concat(s.toString().concat(", Average=").concat(String.valueOf(average)).concat("<br></br>"));
+        for (StudentGrades s : studentGradesToBeProcessed) {
+            average = s.studentAverage();
+            resultGrades = resultGrades.concat(s.toString().concat(", Average=").concat(String.valueOf(average)).concat("<br></br>"));
         }
 
         return resultGrades;
-        }
-
-
-
     }
+
+
+}
 
 
 
