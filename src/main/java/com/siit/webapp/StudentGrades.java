@@ -1,7 +1,5 @@
 package com.siit.webapp;
 
-import java.util.Comparator;
-
 public class StudentGrades {
     private final Student s;
     private int gradeMath;
