@@ -1,9 +1,7 @@
 package com.siit.webapp;
 
-import java.util.Comparator;
-
 public class StudentGrades {
-    private  Student s;
+    private final Student s;
     private int gradeMath;
     private int gradeEnglish;
     private int gradeScience;

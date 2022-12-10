@@ -3,8 +3,8 @@ package com.siit.webapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class CatalogueService {
@@ -16,36 +16,16 @@ public class CatalogueService {
 
     private final StudentsRepository studentsRepository;
 
-    public String createStudentCatalogue() {
-        List<Student> studentListToBeProcessed = studentsRepository.getStudents();
+    public String createStudentCatalogue() throws FileNotFoundException {
+        String studentListToBeProcessed = studentsRepository.studentList();
         String result = "";
 
-
-        for (Student student : studentListToBeProcessed) {
-            result = result.concat(student.toString().concat("<br></br>"));
-        }
-
-        return result;
+        return studentListToBeProcessed ;
     }
 
 
-    public String createStudentGradesCatalogue() {
-        List<StudentGrades> studentGradesToBeProcessed = studentsRepository.getGrades();
-        String resultGrades = "";
-        int average=0;
-        Collections.sort(studentGradesToBeProcessed, new ComparatorStudentGrades() {
-        });
-        for(StudentGrades s :studentGradesToBeProcessed){
-            average=s.studentAverage();
-            resultGrades=resultGrades.concat(s.toString().concat(", Average=").concat(String.valueOf(average)).concat("<br></br>"));
-        }
 
-        return resultGrades;
-        }
-
-
-
-    }
+}
 
 
 
