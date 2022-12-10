@@ -13,13 +13,13 @@ public class StudentsRepository {
     public String studentList() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("D:\\csvStudents.csv"));
         String result="";
-        sc.useDelimiter(" , ");   //sets the delimiter pattern
-        while (sc.hasNext())  //returns a boolean value
+        sc.useDelimiter(" , ");
+        while (sc.hasNext())
         {
             result=sc.next();
-            System.out.print(result);  //find and returns the next complete token from this scanner
+            System.out.print(result);
         }
-        sc.close();  //closes the scanner
+        sc.close();
         return result;
     }
 }
