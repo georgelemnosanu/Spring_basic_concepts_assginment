@@ -3,8 +3,7 @@ package com.siit.webapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Service
 public class CatalogueService {
@@ -31,7 +30,7 @@ public class CatalogueService {
     public String createStudentGradeCatalogue() {
         List<Student> studentListToBeProcessed = studentsRepository.getStudents();
         String resultFinal = "";
-        Collections.sort(studentListToBeProcessed, new ComparatorStudentGrades() {
+        studentListToBeProcessed.sort(new ComparatorStudentGrades() {
         });
         for (Student student : studentListToBeProcessed) {
             student.getAverage();
