@@ -31,8 +31,6 @@ public class CatalogueService {
     public String createStudentGradeCatalogue() {
         List<Student> studentListToBeProcessed = studentsRepository.getStudents();
         String resultFinal = "";
-        Comparator<Student> studentGradeComparator
-                = Comparator.comparingDouble(Student::getAverage);
         Collections.sort(studentListToBeProcessed, new ComparatorStudentGrades() {
         });
         for (Student student : studentListToBeProcessed) {
