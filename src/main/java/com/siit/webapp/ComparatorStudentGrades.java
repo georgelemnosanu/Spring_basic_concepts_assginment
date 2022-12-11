@@ -2,11 +2,11 @@ package com.siit.webapp;
 
 import java.util.Comparator;
 
-public class ComparatorStudentGrades implements Comparator<StudentGrades> {
+public class ComparatorStudentGrades implements Comparator<Student> {
     @Override
-    public int compare(StudentGrades a, StudentGrades b)
+    public int compare(Student a, Student b)
     {
-        return b.studentAverage()- a.studentAverage();
+        return (int) (b.getAverage()- a.getAverage());
     }
 }
 

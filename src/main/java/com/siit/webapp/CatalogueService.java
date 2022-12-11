@@ -20,32 +20,32 @@ public class CatalogueService {
         List<Student> studentListToBeProcessed = studentsRepository.getStudents();
         String result = "";
 
-
         for (Student student : studentListToBeProcessed) {
-            result = result.concat(student.toString().concat("<br></br>"));
+
+            result = result.concat(student.getFirstName().concat("  ").concat(student.getLastName()).concat("<br></br>"));
         }
 
         return result;
     }
 
-
-    public String createStudentGradesCatalogue() {
-        List<StudentGrades> studentGradesToBeProcessed = studentsRepository.getGrades();
-        String resultGrades = "";
-        int average=0;
-        Collections.sort(studentGradesToBeProcessed, new ComparatorStudentGrades() {
+    public String createStudentGradeCatalogue() {
+        List<Student> studentListToBeProcessed = studentsRepository.getStudents();
+        String resultFinal = "";
+        Comparator<Student> studentGradeComparator
+                = Comparator.comparingDouble(Student::getAverage);
+        Collections.sort(studentListToBeProcessed, new ComparatorStudentGrades() {
         });
-        for(StudentGrades s :studentGradesToBeProcessed){
-            average=s.studentAverage();
-            resultGrades=resultGrades.concat(s.toString().concat(", Average=").concat(String.valueOf(average)).concat("<br></br>"));
+        for (Student student : studentListToBeProcessed) {
+            student.getAverage();
+            resultFinal = resultFinal.concat(student.toString().concat("<br></br>"));
         }
 
-        return resultGrades;
-        }
-
-
-
+        return resultFinal;
     }
+}
+
+
+
 
 
 
