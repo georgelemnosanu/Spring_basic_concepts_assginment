@@ -18,7 +18,6 @@ public class CatalogueService {
 
     public String createStudentCatalogue() throws FileNotFoundException {
         String studentListToBeProcessed = studentsRepository.studentList();
-        String result = "";
 
         return studentListToBeProcessed ;
     }
